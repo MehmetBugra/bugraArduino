@@ -4,6 +4,7 @@ const byte Sutun= 4;  // keypad sütün sayısı
 String Sifre;     // girilen şifre 
 String sonuc = "1234";
 bool sifreGirildi = false;
+int buzzerPin = A0;
 // Keypad tuş yapısını hazırlıyoruz.
 char key[Satir][Sutun]= 
 {
@@ -59,8 +60,12 @@ void loop() {
     if (mesafe > 20){
       digitalWrite(ledYesil, LOW); 
       digitalWrite(ledPin, HIGH);
+      tone(buzzerPin, 2620);
       delay(500);
-      digitalWrite(ledPin, LOW);}
+      digitalWrite(ledPin, LOW);
+      noTone(buzzerPin);
+      
+      }
       }
       
   else{
@@ -116,5 +121,6 @@ void loop() {
 - Keypad
 - Kablolar
 - Breadboard
+- Buzzer
 */
   
